@@ -2,7 +2,6 @@
 
 namespace AwoAPI\Entity;
 
-
 /**
  * Class Base
  *

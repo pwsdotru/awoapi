@@ -3,6 +3,7 @@
 namespace AwoAPI\Entity;
 
 use AwoAPI\Entity\Base;
+
 /**
  * Class Base
  *
@@ -10,5 +11,5 @@ use AwoAPI\Entity\Base;
  */
 class Order extends Base
 {
-  
+
 }
