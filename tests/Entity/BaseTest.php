@@ -16,6 +16,8 @@ class BaseTest extends TestCase
     {
         parent::setUp();
         $this->obj = new class extends Base {
+            public $id;
+            public $customerContact;
             public function getPropertyName(string $name): string
             {
                 return parent::getPropertyName($name);
@@ -23,6 +25,20 @@ class BaseTest extends TestCase
         };
     }
 
+    /**
+     * @covers Base::setData
+     */
+    public function testSetData()
+    {
+        $data = [
+            'id' => 2,
+            'customer_contact' => 'customer1'
+        ];
+        $this->obj->setData($data);
+
+        self::assertEquals(2, $this->obj->id);
+        self::assertEquals('customer1', $this->obj->customerContact);
+    }
     /**
      * @covers Base::getPropertyName
      * @dataProvider dataPropertyName
