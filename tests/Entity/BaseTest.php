@@ -18,6 +18,10 @@ class BaseTest extends TestCase
         $this->obj = new class extends Base {
             public $id;
             public $customerContact;
+            protected $mapping = [
+                'id_customer' => 'customerId',
+                ];
+
             public function getPropertyName(string $name): string
             {
                 return parent::getPropertyName($name);
@@ -53,7 +57,8 @@ class BaseTest extends TestCase
         return [
             ['id', 'id'],
             ['user_id', 'userId'],
-            ['customer_contact_name', 'customerContactName']
+            ['customer_contact_name', 'customerContactName'],
+            ['id_customer', 'customerId'],
         ];
     }
 }

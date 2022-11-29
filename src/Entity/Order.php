@@ -5,7 +5,7 @@ namespace AwoAPI\Entity;
 use AwoAPI\Entity\Base;
 
 /**
- * Class Base
+ * Class Order
  *
  * @package AwoAPI\Entity
  */

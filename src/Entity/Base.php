@@ -9,6 +9,8 @@ namespace AwoAPI\Entity;
  */
 class Base
 {
+    protected $mapping = [];
+
     public function setData(array $data): self
     {
         foreach ($data as $key => $value) {
@@ -27,6 +29,9 @@ class Base
      */
     protected function getPropertyName(string $name): string
     {
+        if (isset($this->mapping) && isset($this->mapping[$name])) {
+            return $this->mapping[$name];
+        }
         return lcfirst(implode('', array_map("ucfirst", explode('_', $name))));
     }
 
