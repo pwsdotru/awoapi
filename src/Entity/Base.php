@@ -11,6 +11,24 @@ class Base
 {
     protected $mapping = [];
 
+    public function __call($name, $arguments)
+    {
+        $prefix = substr($name, 0, 3);
+        if ($prefix === 'get') {
+            $fieldname = lcfirst(substr($name, 3));
+            if ($this->isProperty($fieldname)) {
+                return $this->$fieldname;
+            }
+        }
+        throw new \Exception("Call to undefined method " . $name);
+    }
+
+    /**
+     * Заполнение свойств класса данными из массива
+     * Данные берутся из массива, если индекс массива совпадает с именем свойства класса
+     * @param array $data
+     * @return $this
+     */
     public function setData(array $data): self
     {
         foreach ($data as $key => $value) {
@@ -23,7 +41,9 @@ class Base
     }
 
     /**
-     * Перевод имени из snake в camel case
+     * Конвертация имен свойств класса.
+     * Если имя не указано в таблице для маппинга, то делается
+     * перевод имени из snake в camel case
      * @param string $name
      * @return string
      */

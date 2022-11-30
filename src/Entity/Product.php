@@ -9,6 +9,10 @@ use AwoAPI\Entity\Base;
  *
  * @package AwoAPI\Entity
  * В терминологии документации к АвтоВебОфис АПИ это goods
+ *
+ * @method int getId()
+ * @method getMarking()
+ * @method getCategoryId()
  */
 class Product extends Base
 {
