@@ -13,6 +13,7 @@ class ProductTest extends TestCase
             'id_goods' => 12,
             'marking' => 'test',
             'id_goods_category' => 10,
+            'brief_description' => 'text',
         ];
 
         $product = new Product();
@@ -20,5 +21,6 @@ class ProductTest extends TestCase
         self::assertEquals(12, $product->getId());
         self::assertEquals(10, $product->getCategoryId());
         self::assertEquals('test', $product->getMarking());
+        self::assertEquals('text', $product->getDescription());
     }
 }

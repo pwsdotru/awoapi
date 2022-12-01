@@ -30,6 +30,14 @@ class BaseTest extends TestCase
     }
 
     /**
+     * @covers Base::__call
+     */
+    public function testCall()
+    {
+        $this->obj->id = 20;
+        self::assertEquals(20, $this->obj->getId());
+    }
+    /**
      * @covers Base::setData
      */
     public function testSetData()

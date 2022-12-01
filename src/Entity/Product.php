@@ -12,7 +12,13 @@ use AwoAPI\Entity\Base;
  *
  * @method int getId()
  * @method getMarking()
- * @method getCategoryId()
+ * @method int getCategoryId()
+ * @method getInAffiliate()
+ * @method getGoods()
+ * @method getVariantsName()
+ * @method string getImage()
+ * @method string getImageUrl()
+ * @method string getDescription()
  */
 class Product extends Base
 {
